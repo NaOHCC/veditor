@@ -3,12 +3,15 @@
   <div class="w-3/4 mx-auto">
     <div>
       <el-input v-model="form.title"></el-input>
-      <el-input v-model="form.description" class="my-8"></el-input>
-      <el-input
+      <p class="btn">生成标题</p>
+      <el-input v-model="form.description"></el-input>
+      <p class="btn">生成摘要</p>
+      <!-- <el-input
         type="textarea"
         v-model="form.body"
         :autosize="{ minRows: 10 }"
-      ></el-input>
+      ></el-input> -->
+      <MainEditor></MainEditor>
     </div>
     <div class="flex justify-end my-8">
       <button
@@ -26,6 +29,7 @@ import { computed, onBeforeMount, reactive, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 import Header from "../components/Header.vue";
 import { Article, getArticle } from "../utils/article";
+import MainEditor from "../components/MainEditor.vue";
 
 interface Form {
   title: string;
