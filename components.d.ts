@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     ElPagination: typeof import('element-plus/es')['ElPagination']
     ElSlider: typeof import('element-plus/es')['ElSlider']
     Header: typeof import('./src/components/Header.vue')['default']
+    MainEditor: typeof import('./src/components/MainEditor.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Ztransition: typeof import('./src/components/Ztransition.vue')['default']
