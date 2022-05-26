@@ -35,6 +35,7 @@ export const getArticle = async (slug: string) => {
   return res.data.article as Article;
 };
 
+// Hook方案
 export const useArticle = (slug: string) => {
   const article: Ref<Article | null> = ref(null);
   getArticle(slug).then((res) => {

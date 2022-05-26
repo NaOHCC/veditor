@@ -45,8 +45,6 @@ const form: Form = reactive({
 });
 
 onBeforeMount(async () => {
-  console.log(form);
-
   if (slug.value) {
     const res = await getArticle(slug.value);
     form.body = res.body;

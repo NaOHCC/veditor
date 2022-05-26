@@ -32,9 +32,7 @@ const localStorageByKey = <E>(key: string, initialValue: E) => {
   }
 
   const proxyObj = new Proxy(obj, {
-    set(target: E, p: string | symbol, value: any): boolean {
-      console.log(target);
-
+    set(target: E, p: string | symbol, value: any) {
       (<any>target)[p] = value;
       localStorage.setItem(key, JSON.stringify(target));
       return true;
