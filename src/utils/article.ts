@@ -35,6 +35,21 @@ export const getArticle = async (slug: string) => {
   return res.data.article as Article;
 };
 
+interface PostArticleT {
+  title: string;
+  description: string;
+  body: string;
+  tagList: string[];
+}
+
+export const updateArticle = async (slug: string, form: PostArticleT) => {
+  const res = await instance.put(`/articles/${slug}`, {
+    article: form,
+  });
+  console.log("成功修改文章");
+  return res.data.article as Article;
+};
+
 // Hook方案
 export const useArticle = (slug: string) => {
   const article: Ref<Article | null> = ref(null);

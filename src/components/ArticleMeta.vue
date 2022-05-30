@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-end">
+  <div v-if="props.article !== null" class="flex justify-end">
     <div class="flex">
       <img class="w-10 h-10 rounded-lg" :src="article.author.image" />
       <div>

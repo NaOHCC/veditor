@@ -18,8 +18,17 @@
 
 <script lang="ts" setup>
 import "@wangeditor/editor/dist/css/style.css"; // 引入 css
-import { onBeforeUnmount, ref, shallowRef, onMounted } from "vue";
+import { onBeforeUnmount, ref, shallowRef, onMounted, watch } from "vue";
 import { Editor, Toolbar } from "@wangeditor/editor-for-vue";
+
+type Props = {
+  content: string;
+};
+
+const props = withDefaults(defineProps<Props>(), {
+  content: "",
+});
+
 // TODO: 图片接口
 const mode = ref("default");
 
@@ -27,13 +36,10 @@ const mode = ref("default");
 const editorRef = shallowRef();
 
 // 内容 HTML
-const valueHtml = ref("<p>hello</p>");
+const valueHtml = ref("");
 
-// 模拟 ajax 异步获取内容
-onMounted(() => {
-  setTimeout(() => {
-    valueHtml.value = "<p>模拟 Ajax 异步设置内容</p>";
-  }, 1500);
+watch(props, (_props) => {
+  valueHtml.value = _props.content;
 });
 
 const toolbarConfig = {};
@@ -49,4 +55,8 @@ onBeforeUnmount(() => {
 const handleCreated = (editor: any) => {
   editorRef.value = editor; // 记录 editor 实例，重要！
 };
+
+defineExpose({
+  valueHtml,
+});
 </script>
