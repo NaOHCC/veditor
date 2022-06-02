@@ -58,11 +58,11 @@ onBeforeMount(async () => {
 
 const mainContent = ref(null);
 
-const submit = () => {
+const submit = async () => {
   form.body = (mainContent.value as any)?.valueHtml;
 
   try {
-    const res = updateArticle(slug.value, form);
+    const res = await updateArticle(slug.value, form);
     router.back();
     ElMessage.success({
       message: "修改成功！",
