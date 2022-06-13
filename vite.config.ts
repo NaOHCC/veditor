@@ -15,6 +15,14 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: 8000,
+    port: 9007,
+    proxy: {
+      "/api": {
+        target: "http://192.168.10.90:8000",
+        changeOrigin: true,
+        rewrite: (path) => path,
+      },
+    },
+    cors: true,
   },
 });

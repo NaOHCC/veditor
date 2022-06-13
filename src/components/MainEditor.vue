@@ -55,8 +55,12 @@ onBeforeUnmount(() => {
 const handleCreated = (editor: any) => {
   editorRef.value = editor; // 记录 editor 实例，重要！
 };
+const getContent = () => {
+  return editorRef.value.getText();
+};
 
 defineExpose({
   valueHtml,
+  getContent,
 });
 </script>

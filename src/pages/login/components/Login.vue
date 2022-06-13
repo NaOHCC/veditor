@@ -38,8 +38,8 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../../../store";
 import { fetchLogin } from "../../../utils/user";
-let email = ref<string>("user0@mail.com");
-let password = ref<string>("123456");
+let email = ref<string>("2417170480@qq.com");
+let password = ref<string>("2417170480");
 const userStore = useUserStore();
 const router = useRouter();
 

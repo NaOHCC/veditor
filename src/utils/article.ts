@@ -50,6 +50,14 @@ export const updateArticle = async (slug: string, form: PostArticleT) => {
   return res.data.article as Article;
 };
 
+export const createArticle = async (form: PostArticleT) => {
+  const res = await instance.post(`/articles`, {
+    article: form,
+  });
+  console.log("成功创建文章");
+  return res.data.article as Article;
+};
+
 // Hook方案
 export const useArticle = (slug: string) => {
   const article: Ref<Article | null> = ref(null);
