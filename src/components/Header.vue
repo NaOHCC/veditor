@@ -1,12 +1,20 @@
 <template>
   <div class="flex items-center justify-between">
-    <span>VEditor</span>
-    <div class="flex">
-      <router-link to="/"><span>Home</span></router-link>
-      <router-link :to="{ name: 'create-article' }"
-        ><span class="btn">写作</span></router-link
+    <div>
+      <el-icon><EditPen /></el-icon><span>VEditor</span>
+    </div>
+    <div class="flex items-center justify-between">
+      <router-link to="/" class="px-3"
+        ><el-icon><HomeFilled /></el-icon><span>Home</span></router-link
       >
-      <div v-if="isLogin">
+      <router-link
+        :to="{ name: 'create-article' }"
+        class="btn btn-outline btn-success"
+      >
+        <el-icon><Edit /></el-icon>
+        <span>写作</span></router-link
+      >
+      <div v-if="isLogin" class="px-3">
         <el-dropdown>
           <img class="w-10 h-10 rounded-lg" :src="userStore.user.image" />
           <template #dropdown>

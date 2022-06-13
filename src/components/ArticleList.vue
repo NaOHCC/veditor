@@ -1,7 +1,11 @@
 <template>
   <div class="mx-auto w-1/2">
     <div class="">
-      <div v-for="(item, index) in articles" :key="index" class="mb-10">
+      <div
+        v-for="(item, index) in articles"
+        :key="index"
+        class="mb-10 card bg-base-100 shadow-xl"
+      >
         <div class="flex ml-5">
           <img class="w-10 h-10 rounded mr-4" :src="item.author.image" />
           <div class="">
@@ -9,9 +13,9 @@
             <div>{{ timeFormat(item.createdAt) }}</div>
           </div>
         </div>
-        <div>
+        <div class="card-body">
           <router-link :to="'/article/' + item.slug"
-            ><p class="text-xl">{{ item.title }}</p></router-link
+            ><p class="card-title">{{ item.title }}</p></router-link
           >
           <p class="text-gray-600">{{ item.description }}</p>
         </div>
